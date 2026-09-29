@@ -1,0 +1,122 @@
+:root {
+  --bg-pitch-dark: #000000;
+  --bg-dark-surface: #0a0a0e;
+  --gold-primary: #f3c669;
+  --gold-secondary: #d4af37;
+  --gold-light: #fff3d1;
+  --gold-glow: rgba(243, 198, 105, 0.35);
+  --blue-accent: #3b82f6;
+  --text-bright: #ffffff;
+  --text-muted: rgba(255, 255, 255, 0.7);
+  --text-dim: rgba(255, 255, 255, 0.45);
+  
+  --font-scribble: 'Caveat', 'Rock Salt', 'Reenie Beanie', cursive;
+  --font-heading: 'Cinzel', serif;
+  --font-sans: 'Outfit', sans-serif;
+
+  font-family: var(--font-sans);
+  background-color: var(--bg-pitch-dark);
+  color: var(--text-bright);
+  color-scheme: dark;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: #000000;
+}
+
+#root {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: radial-gradient(circle at 75% 50%, rgba(20, 24, 40, 0.6) 0%, rgba(0, 0, 0, 1) 70%);
+  position: relative;
+}
+
+/* Scribble text styling */
+.scribble-font {
+  font-family: var(--font-scribble);
+}
+
+/* Animations */
+@keyframes pulseText {
+  0%, 100% {
+    opacity: 0.6;
+    transform: translateX(-50%) scale(1);
+    text-shadow: 0 0 10px rgba(243, 198, 105, 0.2);
+  }
+  50% {
+    opacity: 1;
+    transform: translateX(-50%) scale(1.04);
+    text-shadow: 0 0 25px rgba(243, 198, 105, 0.8), 0 0 40px rgba(243, 198, 105, 0.4);
+  }
+}
+
+@keyframes floatPortrait {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(0.5deg);
+  }
+}
+
+@keyframes goldenShimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+@keyframes auraGlow {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.75;
+    transform: scale(1.08);
+  }
+}
+
+@keyframes rippleEffect {
+  0% {
+    width: 0px;
+    height: 0px;
+    opacity: 0.8;
+  }
+  100% {
+    width: 400px;
+    height: 400px;
+    opacity: 0;
+  }
+}
+
+/* Touch Ripple Visual Indicator */
+.touch-ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(243, 198, 105, 0.6) 0%, rgba(243, 198, 105, 0) 70%);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  animation: rippleEffect 0.75s ease-out forwards;
+  z-index: 9999;
+}
+
